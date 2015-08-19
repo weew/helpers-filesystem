@@ -99,7 +99,11 @@ if ( ! function_exists('file_append')) {
      * @return bool
      */
     function file_append($path, $content) {
-        return file_put_contents($path, $content, FILE_APPEND) !== false;
+        if (file_exists($path)) {
+            return file_write($path, file_read($path) . $content);
+        }
+
+        return file_write($path, $content);
     }
 }
 
@@ -189,7 +193,7 @@ if ( ! function_exists('file_rename')) {
      */
     function file_rename($path, $newName) {
         $oldPath = $path;
-        $newPath = file_get_directory($path) . '/' . $newName;
+        $newPath = path(file_get_directory($path), $newName);
 
         return rename($oldPath, $newPath);
     }

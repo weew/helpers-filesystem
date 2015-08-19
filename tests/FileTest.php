@@ -22,6 +22,7 @@ class FileTest extends PHPUnit_Framework_TestCase {
 
         $this->assertFalse(file_exists($file1));
         file_create($file1);
+        file_create($file1);
         $this->assertTrue(file_exists($file1));
         $this->assertEquals('', file_read($file1));
         file_write($file1, 'foo');
@@ -30,6 +31,15 @@ class FileTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('foo_bar', file_read($file1));
         file_prepend($file1, '#');
         $this->assertEquals('#foo_bar', file_read($file1));
+        file_append($file1, '_bar');
+        file_prepend($file1, '#');
+        $this->assertEquals('##foo_bar_bar', file_read($file1));
+
+        file_append($file1 . '_append', '_bar');
+        $this->assertEquals(file_read($file1 . '_append'), '_bar');
+        file_prepend($file1 . '_prepend', '#');
+        $this->assertEquals(file_read($file1 . '_prepend'), '#');
+
         $this->assertFalse(file_exists($file2));
         file_copy($file1, $file2);
         $this->assertTrue(file_exists($file2));
@@ -44,6 +54,7 @@ class FileTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse(file_exists($file3));
         $this->assertTrue(file_exists($file4));
         $this->assertEquals(file_read($file1), file_read($file4));
+        file_delete($file4);
         file_delete($file4);
         $this->assertFalse(file_exists($file4));
         $this->assertEquals(

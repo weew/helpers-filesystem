@@ -49,19 +49,23 @@ if ( ! function_exists('directory_delete')) {
      * @return bool
      */
     function directory_delete($path) {
-        $files = array_diff(scandir($path), ['.', '..']);
+        if (directory_exists($path)) {
+            $files = directory_list($path);
 
-        foreach ($files as $file) {
-            $filePath = $path . '/' . $file;
+            foreach ($files as $file) {
+                $filePath = path($path, $file);
 
-            if (is_dir($filePath)) {
-                directory_delete($filePath);
-            } else {
-                file_delete($filePath);
+                if (is_dir($filePath)) {
+                    directory_delete($filePath);
+                } else {
+                    file_delete($filePath);
+                }
             }
-        }
 
-        return rmdir($path);
+            return rmdir($path);
+        } else {
+            return file_delete($path);
+        }
     }
 }
 
@@ -121,11 +125,11 @@ if ( ! function_exists('directory_copy')) {
                 directory_create($newPath);
             }
 
-            $files = array_diff(scandir($oldPath), ['.', '..']);
+            $files = directory_list($oldPath);
 
             foreach ($files as $file) {
-                $oldFilePath = $oldPath . '/' . $file;
-                $newFilePath = $newPath . '/' . $file;
+                $oldFilePath = path($oldPath, $file);
+                $newFilePath = path($newPath, $file);
 
                 if (directory_exists($oldFilePath)) {
                     directory_copy($oldFilePath, $newFilePath);
@@ -152,8 +156,6 @@ if ( ! function_exists('directory_list')) {
             return [];
         }
 
-        return array_values(array_filter(scandir($path), function($file) {
-            return ! in_array($file, ['.', '..']);
-        }));
+        return array_values(array_diff(scandir($path), ['.', '..']));
     }
 }
