@@ -148,14 +148,69 @@ if ( ! function_exists('directory_list')) {
      * Return a list of files and directories.
      *
      * @param $path
+     * @param bool $absolute
      *
      * @return array
      */
-    function directory_list($path) {
+    function directory_list($path, $absolute = false) {
         if ( ! directory_exists($path)) {
             return [];
         }
 
-        return array_values(array_diff(scandir($path), ['.', '..']));
+        $list = array_values(array_diff(scandir($path), ['.', '..']));
+
+        if ($absolute) {
+            $list = array_map(function($item) use ($path) {
+                return path($path, $item);
+            }, $list);
+        }
+
+        return $list;
+    }
+}
+
+if ( ! function_exists('directory_list_files')) {
+    /**
+     * Return a list of files.
+     *
+     * @param $path
+     * @param bool $absolute
+     *
+     * @return array
+     */
+    function directory_list_files($path, $absolute = false) {
+        return array_values(array_filter(
+            directory_list($path, $absolute),
+            function($item) use ($path, $absolute) {
+                if ( ! $absolute) {
+                    $item = path($path, $item);
+                }
+
+                return is_file($item);
+            }
+        ));
+    }
+}
+
+if ( ! function_exists('directory_list_directories')) {
+    /**
+     * Return a list of directories.
+     *
+     * @param $path
+     * @param bool $absolute
+     *
+     * @return array
+     */
+    function directory_list_directories($path, $absolute = false) {
+        return array_values(array_filter(
+            directory_list($path, $absolute),
+            function($item) use ($path, $absolute) {
+                if ( ! $absolute) {
+                    $item = path($path, $item);
+                }
+
+                return is_dir($item);
+            }
+        ));
     }
 }

@@ -49,6 +49,7 @@ class DirectoryTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue(file_exists($dir4_file));
         $this->assertEquals(file_read($dir1_file), file_read($dir4_file));
         $this->assertEquals(['foo.txt', 'yolo'], directory_list($dir1));
+        $this->assertEquals([path($dir1, 'foo.txt'), path($dir1, 'yolo')], directory_list($dir1, true));
         $this->assertEquals([], directory_list('yada'));
         $this->assertEquals(['dir_1', 'dir_2', 'dir_3'], directory_list(self::getDir()));
         directory_delete(self::getDir());
@@ -57,5 +58,20 @@ class DirectoryTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(
             self::getDir() . '/dir_1', directory_get_parent($dir1)
         );
+    }
+
+    public function test_directory_list_files_and_directories() {
+        $dir = path(self::getDir(), 'list');
+        file_create(path($dir, 'foo'));
+        file_create(path($dir, 'bar'));
+        directory_create(path($dir, 'yolo'));
+        directory_create(path($dir, 'swag'));
+        $this->assertEquals(['bar', 'foo'], directory_list_files($dir));
+        $this->assertEquals(
+            [path($dir, 'bar'), path($dir, 'foo')],
+            directory_list_files($dir, true)
+        );
+        $this->assertEquals(['swag', 'yolo'], directory_list_directories($dir));
+        $this->assertEquals([path($dir, 'swag'), path($dir, 'yolo')], directory_list_directories($dir, true));
     }
 }
