@@ -15,7 +15,7 @@ if ( ! function_exists('directory_get_name')) {
 
 if ( ! function_exists('directory_get_parent')) {
     /**
-     * Get name of the file's directory.
+     * Get path of the parent directory.
      *
      * @param $path
      *
@@ -28,7 +28,7 @@ if ( ! function_exists('directory_get_parent')) {
 
 if ( ! function_exists('directory_create')) {
     /**
-     * Create a directory.
+     * Create a directory and all subdirectories.
      *
      * @param $path
      * @param int $mode
@@ -42,7 +42,7 @@ if ( ! function_exists('directory_create')) {
 
 if ( ! function_exists('directory_delete')) {
     /**
-     * Delete a directory.
+     * Delete a directory and all of its files.
      *
      * @param $path
      *
@@ -84,7 +84,7 @@ if ( ! function_exists('directory_exists')) {
 
 if ( ! function_exists('directory_rename')) {
     /**
-     * Rename directory.
+     * Rename a directory.
      *
      * @param $path
      * @param $newName
@@ -112,7 +112,8 @@ if ( ! function_exists('directory_move')) {
 
 if ( ! function_exists('directory_copy')) {
     /**
-     * Copy directory to the specified path.
+     * Copy a directory and all of its contents to the specified path
+     * and create all necessary subdirectories.
      *
      * @param $oldPath
      * @param $newPath

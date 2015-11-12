@@ -54,7 +54,7 @@ if ( ! function_exists('file_read')) {
 
 if ( ! function_exists('file_create')) {
     /**
-     * Create a file.
+     * Create a file and all necessary subdirectories.
      *
      * @param $path
      *
@@ -91,7 +91,7 @@ if ( ! function_exists('file_write')) {
 
 if ( ! function_exists('file_append')) {
     /**
-     * Append contents to a file.
+     * Append contents to the end of file.
      *
      * @param $path
      * @param $content
@@ -109,7 +109,7 @@ if ( ! function_exists('file_append')) {
 
 if ( ! function_exists('file_prepend')) {
     /**
-     * Prepend contents to a file.
+     * Prepend contents to the beginning of file.
      *
      * @param $path
      * @param $content
@@ -144,7 +144,8 @@ if ( ! function_exists('file_delete')) {
 
 if ( ! function_exists('file_move')) {
     /**
-     * Move a file from one location to another.
+     * Move a file from one location to another and
+     * create all necessary subdirectories.
      *
      * @param $oldPath
      * @param $newPath
@@ -164,7 +165,8 @@ if ( ! function_exists('file_move')) {
 
 if ( ! function_exists('file_copy')) {
     /**
-     * Copy a file from one location to another.
+     * Copy a file from one location to another
+     * and create all necessary subdirectories.
      *
      * @param $oldPath
      * @param $newPath
@@ -192,9 +194,8 @@ if ( ! function_exists('file_rename')) {
      * @return bool
      */
     function file_rename($path, $newName) {
-        $oldPath = $path;
         $newPath = path(file_get_directory($path), $newName);
 
-        return rename($oldPath, $newPath);
+        return rename($path, $newPath);
     }
 }
