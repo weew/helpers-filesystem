@@ -46,94 +46,140 @@ This tiny library provides various helper functions to deal with files and direc
 
 ## Functions
 
-#### `string file\_get\_directory(string $path)`
+#### file\_get\_directory
+
+ Get name of the file's directory.
+
+ `string file_get_directory(string $path)`
+
+#### file\_get\_extension
 
 Get name of the file's directory.
 
-#### `string file\_get\_extension(string $path)`
+`string file_get_extension(string $path)`
+
+#### file\_get\_name
 
 Get name of the file's directory.
 
-#### `string file\_get\_name(string $path)`
+`string file_get_name(string $path)`
 
-Get name of the file's directory.
-
-#### `mixed file\_read(string $path)`
+#### file\_read
 
 Read contents of a file.
 
-#### `bool file\_create(string $path)`
+`mixed file_read(string $path)`
+
+#### file\_create
 
 Create a file and all necessary subdirectories.
 
-#### `bool file\_write(string $path, string $content)`
+`bool file_create(string $path)`
+
+#### file\_write
 
 Write to a file.
 
-#### `bool file\_append(string $path, string $content)`
+`bool file_write(string $path, string $content)`
+
+#### file\_append
 
 Append contents to the end of file.
 
-#### `bool file\_prepend(string $path, string content)`
+`bool file_append(string $path, string $content)`
+
+#### file\_prepend
 
 Prepend contents to the beginning of file.
 
-#### `bool file\_delete(string $path)`
+`bool file_prepend(string $path, string content)`
+
+#### file\_delete
 
 Delete a file.
 
-#### `bool file\_rename(string $oldPath, string $newPath)`
+`bool file_delete(string $path)`
+
+#### file\_rename
 
 Move a file from one location to another and create all necessary subdirectories.
 
-#### `bool file\_copy(string $oldPath, string $newPath)`
+`bool file_rename(string $oldPath, string $newPath)`
+
+#### file\_copy
 
 Copy a file from one location to another and create all necessary subdirectories.
 
-#### `bool file\_rename(string $path, $newName)`
+`bool file_copy(string $oldPath, string $newPath)`
+
+#### file\_rename
 
 Rename file at the given path.
 
-#### `string directory\_get\_name(string $path)`
+`bool file_rename(string $path, $newName)`
+
+#### directory\_get\_name
 
 Get name of the file's directory.
 
-#### `string directory\_get\_parent(string $path)`
+`string directory_get_name(string $path)`
+
+#### directory\_get\_parent
 
 Get path of the parent directory.
 
-#### `bool directory\_create(string $path [, $mode = 0777])`
+`string directory_get_parent(string $path)`
+
+#### directory\_create
 
 Create a directory and all subdirectories.
 
-#### `bool directory\_delete(string $path)`
+`bool directory_create(string $path [, $mode = 0777])`
+
+#### directory\_delete
 
 Delete a directory and all of its files.
 
-#### `bool directory\_exists(string $path)`
+`bool directory_delete(string $path)`
+
+#### directory\_exists
 
 Check if a directory exists.
 
-#### `bool directory\_rename(string $path, string $newName)`
+`bool directory_exists(string $path)`
+
+#### directory\_rename
 
 Rename a directory.
 
-#### `bool directory\_move(string $oldPath, string $newPath)`
+`bool directory_rename(string $path, string $newName)`
+
+#### directory\_move
 
 Move directory to the specified path.
 
-#### `bool directory\_copy(string $oldPath, string $newPath)`
+`bool directory_move(string $oldPath, string $newPath)`
+
+#### directory\_copy
 
 Copy a directory and all of its contents to the specified path and create all necessary subdirectories.
 
-#### `string[] directory\_list(string $path [, $absolute = false])`
+`bool directory_copy(string $oldPath, string $newPath)`
+
+#### directory\_list
 
 Return a list of files and directories. `$absolute` indicates whether the paths should be relative or absolute.
 
-#### `string[] directory\_list\_files(string $path [, $absolute = false])`
+`string[] directory_list(string $path [, $absolute = false])`
+
+#### directory\_list\_files
 
 Return a list of files. `$absolute` indicates whether the paths should be relative or absolute.
 
-#### `string[] directory\_list\_directories(string $path [, $absolute = false])`
+`string[] directory_list_files(string $path [, $absolute = false])`
+
+#### directory\_list\_directories
 
 Return a list of directories. `$absolute` indicates whether the paths should be relative or absolute.
+
+`string[] directory_list_directories(string $path [, $absolute = false])`
