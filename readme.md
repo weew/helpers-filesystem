@@ -46,95 +46,94 @@ This tiny library provides various helper functions to deal with files and direc
 
 ## Functions
 
-### string file\_get\_directory(string $path)
+#### `string file\_get\_directory(string $path)`
 
 Get name of the file's directory.
 
-### string file\_get\_extension(string $path)
+#### `string file\_get\_extension(string $path)`
 
 Get name of the file's directory.
 
-### string file\_get\_name(string $path)
+#### `string file\_get\_name(string $path)`
 
 Get name of the file's directory.
 
-### mixed file\_read(string $path)
+#### `mixed file\_read(string $path)`
 
 Read contents of a file.
 
-### bool file\_create(string $path)
+#### `bool file\_create(string $path)`
 
 Create a file and all necessary subdirectories.
 
-
-### bool file\_write(string $path, string $content)
+#### `bool file\_write(string $path, string $content)`
 
 Write to a file.
 
-### bool file\_append(string $path, string $content)
+#### `bool file\_append(string $path, string $content)`
 
 Append contents to the end of file.
 
-### bool file\_prepend(string $path, string content)
+#### `bool file\_prepend(string $path, string content)`
 
 Prepend contents to the beginning of file.
 
-### bool file\_delete(string $path)
+#### `bool file\_delete(string $path)`
 
 Delete a file.
 
-### bool file\_rename(string $oldPath, string $newPath)
+#### `bool file\_rename(string $oldPath, string $newPath)`
 
 Move a file from one location to another and create all necessary subdirectories.
 
-### bool file\_copy(string $oldPath, string $newPath)
+#### `bool file\_copy(string $oldPath, string $newPath)`
 
 Copy a file from one location to another and create all necessary subdirectories.
 
-### bool file\_rename(string $path, $newName)
+#### `bool file\_rename(string $path, $newName)`
 
 Rename file at the given path.
 
-### string directory\_get\_name(string $path)
+#### `string directory\_get\_name(string $path)`
 
 Get name of the file's directory.
 
-### string directory\_get\_parent(string $path)
+#### `string directory\_get\_parent(string $path)`
 
 Get path of the parent directory.
 
-### bool directory\_create(string $path [, $mode = 0777])
+#### `bool directory\_create(string $path [, $mode = 0777])`
 
 Create a directory and all subdirectories.
 
-### bool directory\_delete(string $path)
+#### `bool directory\_delete(string $path)`
 
 Delete a directory and all of its files.
 
-### bool directory\_exists(string $path)
+#### `bool directory\_exists(string $path)`
 
 Check if a directory exists.
 
-### bool directory\_rename(string $path, string $newName)
+#### `bool directory\_rename(string $path, string $newName)`
 
 Rename a directory.
 
-### bool directory\_move(string $oldPath, string $newPath)
+#### `bool directory\_move(string $oldPath, string $newPath)`
 
 Move directory to the specified path.
 
-### bool directory\_copy(string $oldPath, string $newPath)
+#### `bool directory\_copy(string $oldPath, string $newPath)`
 
 Copy a directory and all of its contents to the specified path and create all necessary subdirectories.
 
-### string[] directory\_list(string $path [, $absolute = false])
+#### `string[] directory\_list(string $path [, $absolute = false])`
 
 Return a list of files and directories. `$absolute` indicates whether the paths should be relative or absolute.
 
-### string[] directory\_list\_files(string $path [, $absolute = false])
+#### `string[] directory\_list\_files(string $path [, $absolute = false])`
 
 Return a list of files. `$absolute` indicates whether the paths should be relative or absolute.
 
-### string[] directory\_list\_directories(string $path [, $absolute = false])
+#### `string[] directory\_list\_directories(string $path [, $absolute = false])`
 
 Return a list of directories. `$absolute` indicates whether the paths should be relative or absolute.
