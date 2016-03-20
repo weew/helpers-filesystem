@@ -22,7 +22,7 @@ class FileTest extends PHPUnit_Framework_TestCase {
 
         $this->assertFalse(file_exists($file1));
         file_create($file1);
-        file_create($file1);
+        file_write($file1, '');
         $this->assertTrue(file_exists($file1));
         $this->assertEquals('', file_read($file1));
         file_write($file1, 'foo');

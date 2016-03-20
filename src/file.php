@@ -85,6 +85,8 @@ if ( ! function_exists('file_write')) {
      * @return bool
      */
     function file_write($path, $content) {
+        file_create($path);
+
         return file_put_contents($path, $content) !== false;
     }
 }
