@@ -144,6 +144,21 @@ if ( ! function_exists('directory_copy')) {
     }
 }
 
+if ( ! function_exists('directory_clear')) {
+    /**
+     * Delete all files and directories inside a directory.
+     *
+     * @param $path
+     */
+    function directory_clear($path) {
+        if (directory_exists($path)) {
+            foreach (directory_list($path, true) as $file) {
+                directory_delete($file);
+            }
+        }
+    }
+}
+
 if ( ! function_exists('directory_list')) {
     /**
      * Return a list of files and directories.

@@ -30,6 +30,7 @@
     - [directory\_rename](#directory_rename)
     - [directory\_move](#directory_move)
     - [directory\_copy](#directory_copy)
+    - [directory\_clear](#directory_clear)
     - [directory\_list](#directory_list)
     - [directory\_list\_files](#directory_list_files)
     - [directory\_list\_directories](#directory_list_directories)
@@ -163,6 +164,12 @@ Move directory to the specified path.
 Copy a directory and all of its contents to the specified path and create all necessary subdirectories.
 
 `bool directory_copy(string $oldPath, string $newPath)`
+
+#### directory\_clear
+
+Delete all files and directories inside a directory.
+
+`directory_clear(string $path)`
 
 #### directory\_list
 

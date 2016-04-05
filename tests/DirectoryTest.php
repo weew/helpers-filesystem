@@ -74,4 +74,14 @@ class DirectoryTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(['swag', 'yolo'], directory_list_directories($dir));
         $this->assertEquals([path($dir, 'swag'), path($dir, 'yolo')], directory_list_directories($dir, true));
     }
+
+    public function test_directory_clear() {
+        directory_create(self::getDir() . '/another_dir');
+        file_create(self::getDir() . '/another_file.txt');
+
+        $this->assertTrue(count(directory_list(self::getDir())) > 0);
+
+        directory_clear(self::getDir());
+        $this->assertEquals(0, count(directory_list(self::getDir())));
+    }
 }
