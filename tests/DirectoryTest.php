@@ -84,4 +84,8 @@ class DirectoryTest extends PHPUnit_Framework_TestCase {
         directory_clear(self::getDir());
         $this->assertEquals(0, count(directory_list(self::getDir())));
     }
+
+    public function test_directory_create_checks_if_directory_already_exists() {
+        $this->assertTrue(directory_create('/tmp'));
+    }
 }
