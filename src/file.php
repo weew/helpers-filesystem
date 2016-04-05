@@ -45,10 +45,14 @@ if ( ! function_exists('file_read')) {
      *
      * @param $path
      *
-     * @return string
+     * @return string|null
      */
     function file_read($path) {
-        return file_get_contents($path);
+        if (file_exists($path)) {
+            return file_get_contents($path);
+        }
+
+        return null;
     }
 }
 

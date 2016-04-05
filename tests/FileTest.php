@@ -63,4 +63,8 @@ class FileTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('txt', file_get_extension($file1));
         $this->assertEquals('foo.txt', file_get_name($file1));
     }
+
+    public function test_file_read_returns_null_for_not_existing_files() {
+        $this->assertEquals(null, file_read('some_file'));
+    }
 }
