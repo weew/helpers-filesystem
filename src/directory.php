@@ -36,7 +36,11 @@ if ( ! function_exists('directory_create')) {
      * @return bool
      */
     function directory_create($path, $mode = 0777) {
-        return mkdir($path, $mode, true);
+        if ( ! directory_exists($path)) {
+            return mkdir($path, $mode, true);
+        }
+
+        return true;
     }
 }
 
