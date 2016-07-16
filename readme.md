@@ -1,9 +1,9 @@
 # Filesystem helpers
 
-[![Build Status](https://img.shields.io/travis/weew/php-helpers-file.svg)](https://travis-ci.org/weew/php-helpers-file)
-[![Test Coverage](https://img.shields.io/coveralls/weew/php-helpers-file.svg)](https://coveralls.io/github/weew/php-helpers-file)
-[![Version](https://img.shields.io/packagist/v/weew/php-helpers-file.svg)](https://packagist.org/packages/weew/php-helpers-file)
-[![Licence](https://img.shields.io/packagist/l/weew/php-helpers-file.svg)](https://packagist.org/packages/weew/php-helpers-file)
+[![Build Status](https://img.shields.io/travis/weew/helpers-filesystem.svg)](https://travis-ci.org/weew/helpers-filesystem)
+[![Test Coverage](https://img.shields.io/coveralls/weew/helpers-filesystem.svg)](https://coveralls.io/github/weew/helpers-filesystem)
+[![Version](https://img.shields.io/packagist/v/weew/helpers-filesystem.svg)](https://packagist.org/packages/weew/helpers-filesystem)
+[![Licence](https://img.shields.io/packagist/l/weew/helpers-filesystem.svg)](https://packagist.org/packages/weew/helpers-filesystem)
 
 ## Table of contents
 
@@ -37,7 +37,7 @@
 
 ## Installation
 
-`composer require weew/php-helpers-files`
+`composer require weew/helpers-filesystem`
 
 ## Introduction
 
